@@ -3,5 +3,6 @@ go 1.21.4
 use(
     ./day_1
     ./day_2
+    ./day_3
     ./utilities
 )
