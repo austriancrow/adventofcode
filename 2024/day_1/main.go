@@ -13,5 +13,5 @@ func main() {
 
 	file_content2 := utilities.FileReader("data_files/part1.txt")
 	answer2 := funcs.Parse_answer_two(file_content2)
-	fmt.Printf("Day 1 Part 1 Answer: %f\n", answer2)
+	fmt.Printf("Day 1 Part 2 Answer: %f\n", answer2)
 }
