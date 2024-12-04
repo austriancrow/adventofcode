@@ -20,6 +20,6 @@ func TestDay2Part2(t *testing.T) {
 	expected_answer := 48.0
 	answer := funcs.Parse_answer_two(test_data)
 	if answer != expected_answer {
-		t.Fatalf("Part1 Test does not conform to expected answer: %f / %f\n", answer, expected_answer)
+		t.Fatalf("Part2 Test does not conform to expected answer: %f / %f\n", answer, expected_answer)
 	}
 }

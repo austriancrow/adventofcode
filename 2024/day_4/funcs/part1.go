@@ -18,7 +18,7 @@ func search_deeper(current_field *Field, search_array []string, search_index int
 }
 
 func Parse_answer_one(file_content []byte) float64 {
-	defer utilities.TimeTrack(time.Now(), "Day 3 Part 1")
+	defer utilities.TimeTrack(time.Now(), "Day 4 Part 1")
 	// lines := strings.Split(string(file_content), "\n")
 	total := 0
 	fieldMap := NewMap(file_content)
@@ -27,7 +27,7 @@ func Parse_answer_one(file_content []byte) float64 {
 		for _, field := range row {
 			if field.value == search_array[0] {
 				for i := 0; i < 8; i++ {
-					answer := search_deeper(&field, search_array, 0, i)
+					answer := search_deeper(field, search_array, 0, i)
 					if answer {
 						total++
 					}
