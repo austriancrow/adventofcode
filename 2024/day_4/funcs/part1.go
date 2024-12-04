@@ -1,29 +1,38 @@
 package day4
 
 import (
-	"regexp"
-	"strconv"
-	"strings"
 	"time"
 	"utilities"
 )
 
+func search_deeper(current_field *Field, search_array []string, search_index int, search_direction int) bool {
+	if current_field.value == search_array[search_index] {
+		if search_index == len(search_array)-1 {
+			return true
+		}
+		if current_field.neighbors[search_direction] != nil {
+			return search_deeper(current_field.neighbors[search_direction], search_array, search_index+1, search_direction)
+		}
+	}
+	return false
+}
+
 func Parse_answer_one(file_content []byte) float64 {
 	defer utilities.TimeTrack(time.Now(), "Day 3 Part 1")
-	lines := strings.Split(string(file_content), "\n")
+	// lines := strings.Split(string(file_content), "\n")
 	total := 0
-	regex_mul_string, _ := regexp.Compile(`mul\((?P<num0>\d+),(?P<num1>\d+)\)`)
-
-	for _, line := range lines {
-		if line == "" {
-			continue
-		}
-		matches := regex_mul_string.FindAllStringSubmatch(line, -1)
-		for _, match := range matches {
-			num0, _ := strconv.Atoi(match[1])
-			num1, _ := strconv.Atoi(match[2])
-			total += num0 * num1
-
+	fieldMap := NewMap(file_content)
+	search_array := []string{"X", "M", "A", "S"}
+	for _, row := range fieldMap.fields {
+		for _, field := range row {
+			if field.value == search_array[0] {
+				for i := 0; i < 8; i++ {
+					answer := search_deeper(&field, search_array, 0, i)
+					if answer {
+						total++
+					}
+				}
+			}
 		}
 	}
 

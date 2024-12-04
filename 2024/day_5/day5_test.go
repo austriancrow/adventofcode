@@ -1,7 +1,7 @@
 package main
 
 import (
-	funcs "day4/funcs"
+	funcs "day5/funcs"
 	"testing"
 	"utilities"
 )

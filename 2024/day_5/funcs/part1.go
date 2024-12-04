@@ -1,12 +1,12 @@
-package day4
+package day5
 
 import (
 	"time"
 	"utilities"
 )
 
-func Parse_answer_two(file_content []byte) float64 {
-	defer utilities.TimeTrack(time.Now(), "Day 3 Part 2")
+func Parse_answer_one(file_content []byte) float64 {
+	defer utilities.TimeTrack(time.Now(), "Day 3 Part 1")
 	// lines := strings.Split(string(file_content), "\n")
 	total := 0
 
